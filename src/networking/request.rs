@@ -1,12 +1,8 @@
-use super::headers::Headers;
+pub mod method;
 
-#[derive(Debug, PartialEq, Eq, Hash)]
-pub enum Method {
-    GET,
-    POST,
-    PUT,
-    DELETE
-}
+use super::headers::Headers;
+use method::Method;
+
 
 pub struct Request<T> {
     method: String,
