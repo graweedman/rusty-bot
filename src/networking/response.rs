@@ -5,7 +5,7 @@ mod http_status;
 
 
 use http_status::HttpStatus;
-use super::body::{Body, BodyBuffer};
+use super::body::{Body, Buffer};
 
 pub struct Response<T> {
     pub status: HttpStatus,

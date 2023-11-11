@@ -2,7 +2,7 @@ pub struct Body {
     data: String
 }
 
-pub trait BodyBuffer {
+pub trait Buffer {
     fn to_buffer(&self) -> Vec<u8>;
 }
 
@@ -16,7 +16,7 @@ impl Body {
     }
 }
 
-impl BodyBuffer for Body {
+impl Buffer for Body {
     fn to_buffer(&self) -> Vec<u8> {
         self.data.as_bytes().to_vec()
     }
