@@ -2,10 +2,12 @@ use super::headers::Headers;
 
 mod http_status;
 
+pub mod body;
+
 
 
 use http_status::HttpStatus;
-use super::body::{Body, Buffer};
+use body::{Body, Buffer};
 
 pub struct Response<T> {
     pub status: HttpStatus,
@@ -15,7 +17,7 @@ pub struct Response<T> {
 
 impl Response<Body> {
 
-    pub fn new(status: HttpStatus, body: Option<Body>, headers:Headers ) -> Self {
+    pub fn new(status: HttpStatus, body: Option<Body>, headers: Headers) -> Self {
         Response { status, headers, body }
     }
 
@@ -35,6 +37,13 @@ impl Response<Body> {
 
     pub fn internal_server_error(body: Body, headers: Headers) -> Self {
         let status = HttpStatus::InternalServerError;
+        let body = Some(body);
+
+        Response { status, headers, body }
+    }
+
+    pub fn bad_request(body: Body, headers: Headers) -> Self {
+        let status = HttpStatus::BadRequest;
         let body = Some(body);
 
         Response { status, headers, body }

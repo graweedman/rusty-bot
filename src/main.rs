@@ -1,6 +1,6 @@
-mod networking;
+mod network;
 
-use networking::Networking;
+use network::Networking;
 
 fn main() {
     /* Creating a Local TcpListener at Port 8477 */
